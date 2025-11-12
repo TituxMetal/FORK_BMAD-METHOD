@@ -1,0 +1,83 @@
+# BME Developer Coaching Module Configuration
+# This file defines installation questions and module configuration values
+
+code: bme
+name: "BME Developer Coaching"
+default_selected: false
+
+# Welcome message shown during installation
+prompt:
+  - "Thank you for choosing BME Developer Coaching!"
+  - "Enable learning-by-doing at ANY skill level with AI pair programming coaching."
+  - "Morgan will guide, explain, and review - but never replace your coding."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+
+# Interactive Fields (asks user during installation)
+
+coaching_style:
+  prompt: "How detailed should coaching explanations be?"
+  default: "balanced"
+  result: "{value}"
+  single-select:
+    - value: "concise"
+      label: "Concise - Brief explanations, focus on action"
+    - value: "balanced"
+      label: "Balanced - Mix of explanation and action (recommended)"
+    - value: "detailed"
+      label: "Detailed - Comprehensive explanations with context"
+
+default_skill_level:
+  prompt: "What is your current skill level?"
+  default: "intermediate"
+  result: "{value}"
+  single-select:
+    - value: "beginner"
+      label: "Beginner - New to programming or the domain"
+    - value: "intermediate"
+      label: "Intermediate - Comfortable with basics, learning advanced concepts"
+    - value: "advanced"
+      label: "Advanced - Experienced developer exploring mastery"
+
+include_theory:
+  prompt: "Include theoretical explanations with practical guidance?"
+  default: "standard"
+  result: "{value}"
+  single-select:
+    - value: "minimal"
+      label: "Minimal - Focus on 'how', light on 'why'"
+    - value: "standard"
+      label: "Standard - Balance 'how' with 'why' (recommended)"
+    - value: "comprehensive"
+      label: "Comprehensive - Deep theoretical foundations"
+
+auto_suggest_resources:
+  prompt: "Automatically suggest learning resources?"
+  default: "yes"
+  result: "{value}"
+  single-select:
+    - value: "yes"
+      label: "Yes - Proactively suggest articles, docs, tutorials"
+    - value: "no"
+      label: "No - Only suggest when explicitly asked"
+
+learning_output_path:
+  prompt: "Where should learning plans and session notes be saved?"
+  default: "docs/learning"
+  result: "{project-root}/{value}"
+
+# Static Fields (hardcoded values)
+
+module_data_path:
+  result: "{project-root}/{bmad_folder}/bme/data"
+
+module_version:
+  result: "1.0.0"
